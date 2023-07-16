@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"tugas_prakerja/config"
 	"tugas_prakerja/routers"
@@ -21,4 +22,5 @@ func getPORT() string {
 	if port == "" {
 		port = "8000"
 	}
+	return fmt.Sprintf(":%s", port)
 }
