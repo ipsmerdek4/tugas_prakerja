@@ -46,14 +46,14 @@ func CreateDonasiBukuController(c echo.Context) error {
 
 	result := config.DB.Create(&donasi_buku)
 	if result.Error != nil {
-		c.JSON(http.StatusInternalServerError, models.BaseResponse{
+		return c.JSON(http.StatusInternalServerError, models.BaseResponse{
 			Message: "Gagal Menambah Data", Status: false, Data: nil,
 		})
+	} else {
+		return c.JSON(http.StatusOK, models.BaseResponse{
+			Message: "Berhasil Menambah Data", Status: true, Data: donasi_buku,
+		})
 	}
-
-	return c.JSON(http.StatusOK, models.BaseResponse{
-		Message: "Berhasil Menambah Data", Status: true, Data: donasi_buku,
-	})
 
 }
 
