@@ -13,7 +13,7 @@ func main() {
 	config.ConnDatabase()
 	e := echo.New()
 	e = routers.InitRoute(e)
-	e.Start(":8001")
+	e.Start(getPORT())
 }
 
 func getPORT() string {
