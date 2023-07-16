@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"tugas_prakerja/config"
 	"tugas_prakerja/routers"
 
@@ -13,4 +14,11 @@ func main() {
 	e := echo.New()
 	e = routers.InitRoute(e)
 	e.Start(":8001")
+}
+
+func getPORT() string {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
 }
